@@ -9,6 +9,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
@@ -34,8 +35,8 @@ public class NavigationIconClickListener implements View.OnClickListener {
     private Drawable openIcon;
     private Drawable closeIcon;
 
-    NavigationIconClickListener(Context context, View sheet) {
-        this(context, sheet, null);
+    NavigationIconClickListener(boolean backdropShown) {
+        this.backdropShown = backdropShown;
     }
 
     NavigationIconClickListener(Context context, View sheet, @Nullable Interpolator interpolator) {
@@ -79,7 +80,7 @@ public class NavigationIconClickListener implements View.OnClickListener {
         animator.start();
     }
 
-    private void updateIcon(final View view) {
+    public void updateIcon(final View view) {
         if (openIcon != null && closeIcon != null) {
             if (!(view instanceof ImageView)) {
                 throw new IllegalArgumentException("updateIcon() must be called on an ImageView");

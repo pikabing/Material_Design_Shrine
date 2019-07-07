@@ -1,20 +1,29 @@
 package com.google.codelabs.mdc.java.shrine;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.media.Image;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity implements NavigationHost {
+
+    private NestedScrollView product_grid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
      */
     @Override
     public void navigateTo(Fragment fragment, boolean addToBackstack) {
-        FragmentTransaction transaction =
+        final FragmentTransaction transaction =
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.container, fragment);
@@ -46,13 +55,28 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
             transaction.addToBackStack(null);
         }
 
-        transaction.commit();
+        new CountDownTimer(700, 700) {
+            @Override
+            public void onTick(long l) {
+                ObjectAnimator animator = ObjectAnimator.ofFloat(product_grid, "translationY", 0);
+                animator.setDuration(400);
+                animator.setInterpolator(new AccelerateDecelerateInterpolator());
+                AnimatorSet animatorSet = new AnimatorSet();
+                animatorSet.play(animator);
+                animator.start();
+            }
+
+            @Override
+            public void onFinish() {
+                transaction.commit();
+            }
+        }.start();
     }
 
     public void setUpToolbar(View view) {
-        Toolbar toolbar = view.findViewById(R.id.app_bar);
+        final Toolbar toolbar = view.findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-
+        product_grid =  view.findViewById(R.id.product_grid);
 
         toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
                 this,
@@ -64,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
         view.findViewById(R.id.all_products).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                toolbar.setNavigationIcon(R.drawable.shr_branded_menu);
                 navigateTo(new ProductGridFragment(), false);
             }
         });
@@ -71,10 +96,12 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
         view.findViewById(R.id.featured).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                toolbar.setNavigationIcon(R.drawable.shr_branded_menu);
                 navigateTo(new FeatureFragment(), false);
             }
         });
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
