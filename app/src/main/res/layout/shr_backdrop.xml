@@ -2,36 +2,49 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/all_products"
+        style="@style/Widget.Shrine.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ALL PRODUCTS" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/featured"
         style="@style/Widget.Shrine.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/shr_featured_label" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/apartment"
         style="@style/Widget.Shrine.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/shr_apartment_label" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/accessories"
         style="@style/Widget.Shrine.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/shr_accessories_label" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/shoes"
         style="@style/Widget.Shrine.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/shr_shoes_label" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/tops"
         style="@style/Widget.Shrine.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/shr_tops_label" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/bottoms"
         style="@style/Widget.Shrine.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

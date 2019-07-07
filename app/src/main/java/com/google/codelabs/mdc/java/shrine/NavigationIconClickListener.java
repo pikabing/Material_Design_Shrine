@@ -4,12 +4,20 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.animation.Animation;
 import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
+
+import java.util.logging.Handler;
 
 /**
  * {@link android.view.View.OnClickListener} used to translate the product grid sheet downward on
@@ -71,15 +79,35 @@ public class NavigationIconClickListener implements View.OnClickListener {
         animator.start();
     }
 
-    private void updateIcon(View view) {
+    private void updateIcon(final View view) {
         if (openIcon != null && closeIcon != null) {
             if (!(view instanceof ImageView)) {
                 throw new IllegalArgumentException("updateIcon() must be called on an ImageView");
             }
             if (backdropShown) {
-                ((ImageView) view).setImageDrawable(closeIcon);
-            } else {
-                ((ImageView) view).setImageDrawable(openIcon);
+                new CountDownTimer(500, 500) {
+                    @Override
+                    public void onTick(long l) {
+                        view.animate().rotation(360).setDuration(500).start();
+                    }
+
+                    public void onFinish() {
+                       ((ImageView) view).setImageDrawable(closeIcon);
+                       view.animate().cancel();
+                    }
+                }.start();
+            }
+            else {
+                new CountDownTimer(500, 500) {
+                    @Override
+                    public void onTick(long l) {
+                        view.animate().rotation(-360).setDuration(500).start();
+                    }
+
+                    public void onFinish() {
+                        ((ImageView) view).setImageDrawable(openIcon);
+                    }
+                }.start();
             }
         }
     }

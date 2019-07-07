@@ -1,32 +1,28 @@
 package com.google.codelabs.mdc.java.shrine;
 
 import android.content.res.ColorStateList;
-import android.graphics.LinearGradient;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
 import com.google.codelabs.mdc.java.shrine.staggeredgridlayout.StaggeredProductCardRecyclerViewAdapter;
 
-public class ProductGridFragment extends Fragment {
+public class FeatureFragment extends Fragment {
+
+    MaterialButton toolbarButton;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,13 +30,12 @@ public class ProductGridFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
+    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.shr_product_grid_fragment, container, false);
-
+        toolbarButton = view.findViewById(R.id.featured);
         ((MainActivity) getActivity()).setUpToolbar(view);
-
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         LinearLayout cartContainer = view.findViewById(R.id.cart_container);
         recyclerView.setHasFixedSize(true);
@@ -66,11 +61,19 @@ public class ProductGridFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         menuInflater.inflate(R.menu.shr_toolbar_menu, menu);
         super.onCreateOptionsMenu(menu, menuInflater);
     }
-
 }
