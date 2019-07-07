@@ -50,9 +50,7 @@ public class ImageRequester {
                         });
     }
 
-    /**
-     * Get a static instance of ImageRequester
-     */
+
     public static ImageRequester getInstance() {
         if (instance == null) {
             instance = new ImageRequester();
@@ -60,12 +58,6 @@ public class ImageRequester {
         return instance;
     }
 
-    /**
-     * Sets the image on the given {@link NetworkImageView} to the image at the given URL
-     *
-     * @param networkImageView {@link NetworkImageView} to set image on
-     * @param url              URL of the image
-     */
     public void setImageFromUrl(NetworkImageView networkImageView, String url) {
         networkImageView.setImageUrl(url, imageLoader);
     }
