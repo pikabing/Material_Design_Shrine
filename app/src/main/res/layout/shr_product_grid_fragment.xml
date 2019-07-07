@@ -46,7 +46,6 @@
         android:layout_marginTop="56dp"
         android:background="@color/productGridBackgroundColor"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:elevation="10dp"
         tools:targetApi="lollipop">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -57,18 +56,21 @@
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
+        android:id="@+id/cart_container"
         android:layout_width="80dp"
         android:layout_height="70dp"
-        android:background="@drawable/shr_product_grid_background_shape"
         android:layout_gravity="end|bottom"
         android:gravity="center"
+        android:elevation="20dp"
         android:backgroundTint="@color/colorAccent"
-        android:elevation="20dp">
+        android:backgroundTintMode="multiply"
+        android:layout_marginTop="5dp"
+        >
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="20dp"
+            android:padding="17dp"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             app:srcCompat="@drawable/ic_baseline_shopping_cart_24px"

@@ -1,5 +1,7 @@
 package com.google.codelabs.mdc.java.shrine;
 
+import android.content.res.ColorStateList;
+import android.graphics.LinearGradient;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,6 +40,7 @@ public class ProductGridFragment extends Fragment {
         setUpToolbar(view);
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        LinearLayout cartContainer = view.findViewById(R.id.cart_container);
         recyclerView.setHasFixedSize(true);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -54,6 +58,7 @@ public class ProductGridFragment extends Fragment {
         recyclerView.addItemDecoration(new ProductGridItemDecoration(largePadding, smallPadding));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             view.findViewById(R.id.product_grid).setBackgroundResource(R.drawable.shr_product_grid_background_shape);
+            cartContainer.setBackgroundResource(R.drawable.cart_layout_background);
         }
         return view;
     }
