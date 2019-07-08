@@ -8,7 +8,16 @@
     app:cardPreventCornerOverlap="true"
     app:contentPaddingTop="@dimen/shr_staggered_product_grid_margin_top_first">
 
-    <!-- Product card layout used in MDC-103 and onward -->
+    <ImageView
+        android:id="@+id/add_to_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_shopping_cart"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="4dp"
+        android:elevation="5dp"
+    />
+
     <LinearLayout
         android:layout_width="@dimen/shr_staggered_product_grid_card_width_landscape"
         android:layout_height="wrap_content"
