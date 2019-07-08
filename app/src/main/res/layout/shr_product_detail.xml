@@ -2,8 +2,10 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/image_slider"
@@ -303,6 +305,23 @@
             </com.google.android.material.chip.ChipGroup>
 
         </HorizontalScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/CornerCutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="35dp"
+            android:paddingRight="35dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="ADD TO CART"
+            android:textColor="@color/textColorPrimary"
+            android:fontFamily="@font/rubik_medium"
+            app:icon="@drawable/ic_shopping_cart"
+            app:iconTint="@color/textColorPrimary"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 
