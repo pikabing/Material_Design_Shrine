@@ -4,6 +4,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -32,7 +34,6 @@ public class ItemDetailFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.shr_product_detail, container, false);
-
         viewPager2 = view.findViewById(R.id.image_slider);
         imageSliderAdapter = new ImageSliderAdapter(getActivity());
         viewPager2.setAdapter(imageSliderAdapter);
@@ -59,7 +60,9 @@ public class ItemDetailFragment extends Fragment {
             mDots[i].setPadding(0,0,40,0);
             dotsLayout.addView(mDots[i]);
         }
-        mDots[position].setTextColor(getActivity().getResources().getColor(R.color.textColorPrimary, null));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mDots[position].setTextColor(getActivity().getResources().getColor(R.color.textColorPrimary, null));
+        }
     }
 
     ViewPager.OnPageChangeListener listener = new ViewPager.OnPageChangeListener() {
@@ -78,4 +81,5 @@ public class ItemDetailFragment extends Fragment {
 
         }
     };
+
 }

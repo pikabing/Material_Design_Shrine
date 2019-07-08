@@ -25,4 +25,221 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="@dimen/product_detail_icon_size"
+        android:layout_height="@dimen/product_detail_icon_size"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        app:srcCompat="@drawable/shr_close_menu"/>
+
+    <ImageView
+        android:layout_width="@dimen/product_detail_icon_size"
+        android:layout_height="@dimen/product_detail_icon_size"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="60dp"
+        app:srcCompat="@drawable/ic_shopping_cart"
+        android:layout_gravity="end"/>
+
+    <ImageView
+        android:layout_width="@dimen/product_detail_icon_size"
+        android:layout_height="@dimen/product_detail_icon_size"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        app:srcCompat="@drawable/ic_baseline_favorite_border_24px"
+        android:layout_gravity="end"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+    <LinearLayout
+        android:id="@+id/main_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="370dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           >
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/logo_product"
+                android:background="@drawable/circle_background"
+                android:scaleType="centerCrop"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="LMBRJK"
+                app:fontFamily="@font/rubik"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="$240"
+                android:textSize="22sp"
+                android:fontFamily="@font/rubik"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/black"
+                android:gravity="center|end"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Flow Shirt Blouse"
+            android:textColor="@color/textColorPrimary"
+            android:fontFamily="@font/rubik_medium"
+            android:textSize="24sp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pinstripped cornflower blue cotton blouse takes you on a walk to the park or just down the hall."
+            android:textColor="@color/black"
+            android:fontFamily="@font/rubik"
+            android:lineSpacingExtra="3dp"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MORE DETAILS"
+                android:textColor="@color/textColorPrimary"
+                android:fontFamily="@font/rubik_medium"
+                android:textSize="18sp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_keyboard_arrow_down_24px"
+                android:tint="@color/textColorPrimary"
+                android:layout_gravity="end"
+                android:scaleType="fitEnd"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/grey"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Size"
+            android:textColor="@color/textColorPrimary"
+            android:fontFamily="@font/rubik_medium"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                style="@style/Widget.MaterialComponents.ChipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleLine="true"
+                app:singleSelection="true"
+                >
+
+
+                <com.google.android.material.chip.Chip
+                    style="@style/ChipBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00"
+                    app:chipCornerRadius="@dimen/chip_corner_radius"
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/ChipBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipCornerRadius="@dimen/chip_corner_radius"
+                    android:text="02"/>
+
+                <com.google.android.material.chip.Chip
+                    style="@style/ChipBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipCornerRadius="@dimen/chip_corner_radius"
+                    android:text="04"/>
+
+                <com.google.android.material.chip.Chip
+                    style="@style/ChipBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipCornerRadius="@dimen/chip_corner_radius"
+                    android:text="06"/>
+
+                <com.google.android.material.chip.Chip
+                    style="@style/ChipBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipCornerRadius="@dimen/chip_corner_radius"
+                    android:text="08"/>
+
+                <com.google.android.material.chip.Chip
+                    style="@style/ChipBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipCornerRadius="@dimen/chip_corner_radius"
+                    android:text="10"/>
+
+                <com.google.android.material.chip.Chip
+                    style="@style/ChipBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipCornerRadius="@dimen/chip_corner_radius"
+                    android:text="12"/>
+
+                <com.google.android.material.chip.Chip
+                    style="@style/ChipBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipCornerRadius="@dimen/chip_corner_radius"
+                    android:text="14"/>
+
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

@@ -21,6 +21,8 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.button.MaterialButton;
+
 public class MainActivity extends AppCompatActivity implements NavigationHost {
 
     private NestedScrollView product_grid;
@@ -85,21 +87,30 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
                 getResources().getDrawable(R.drawable.shr_branded_menu), // Menu open icon
                 getResources().getDrawable(R.drawable.shr_close_menu))); // Menu close icon
 
-        view.findViewById(R.id.all_products).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toolbar.setNavigationIcon(R.drawable.shr_branded_menu);
-                navigateTo(new ProductGridFragment(), false);
-            }
-        });
+        MaterialButton allProducts, featured;
+        allProducts = view.findViewById(R.id.all_products);
+        featured = view.findViewById(R.id.featured);
 
-        view.findViewById(R.id.featured).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toolbar.setNavigationIcon(R.drawable.shr_branded_menu);
-                navigateTo(new FeatureFragment(), false);
-            }
-        });
+        if (allProducts!=null) {
+            allProducts.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    toolbar.setNavigationIcon(R.drawable.shr_branded_menu);
+                    navigateTo(new ProductGridFragment(), false);
+                }
+            });
+        }
+
+        if (featured!=null) {
+            featured.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    toolbar.setNavigationIcon(R.drawable.shr_branded_menu);
+                    navigateTo(new FeatureFragment(), false);
+                }
+            });
+        }
+
     }
 
 
