@@ -62,7 +62,7 @@
         <item name="chipStrokeWidth">1.5dp</item>
         <item name="chipEndPadding">0dp</item>
         <item name="textStartPadding">10dp</item>
-        <item name="android:selectableItemBackground">@color/textColorPrimary</item>
+        <item name="android:selectableItemBackground">@drawable/circle_background</item>
         <item name="android:textAppearance">@style/ChipTextAppearance</item>
     </style>
 

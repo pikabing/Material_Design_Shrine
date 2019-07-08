@@ -9,6 +9,7 @@
         android:id="@+id/image_slider"
         android:layout_width="match_parent"
         android:layout_height="350dp"
+        android:elevation="2dp"
         />
 
     <LinearLayout
@@ -31,6 +32,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
+        android:elevation="5dp"
         app:srcCompat="@drawable/shr_close_menu"/>
 
     <ImageView
@@ -38,6 +40,7 @@
         android:layout_height="@dimen/product_detail_icon_size"
         android:layout_marginTop="10dp"
         android:layout_marginRight="60dp"
+        android:elevation="5dp"
         app:srcCompat="@drawable/ic_shopping_cart"
         android:layout_gravity="end"/>
 
@@ -47,6 +50,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
         android:layout_marginEnd="15dp"
+        android:elevation="5dp"
         app:srcCompat="@drawable/ic_baseline_favorite_border_24px"
         android:layout_gravity="end"/>
 
@@ -165,7 +169,7 @@
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:scrollbars="none">
 
             <com.google.android.material.chip.ChipGroup
@@ -234,6 +238,67 @@
                     app:chipCornerRadius="@dimen/chip_corner_radius"
                     android:text="14"/>
 
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/grey"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color"
+            android:textColor="@color/textColorPrimary"
+            android:fontFamily="@font/rubik_medium"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"/>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/color_chip_group"
+                style="@style/Widget.MaterialComponents.ChipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleLine="true"
+                app:singleSelection="true"
+                >
+
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:id="@+id/color1"
+                    android:layout_width="60dp"
+                    android:layout_height="52dp"
+                    app:chipCornerRadius="20dp"
+                    app:chipBackgroundColor="@color/textColorPrimary"
+                />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:id="@+id/color2"
+                    android:layout_width="60dp"
+                    android:layout_height="52dp"
+                    app:chipCornerRadius="20dp"
+                    app:chipBackgroundColor="@color/colorAccent"
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:id="@+id/color3"
+                    android:layout_width="60dp"
+                    android:layout_height="52dp"
+                    app:chipCornerRadius="20dp"
+                    app:chipBackgroundColor="@color/colorPrimaryDark"
+                    />
 
             </com.google.android.material.chip.ChipGroup>
 
