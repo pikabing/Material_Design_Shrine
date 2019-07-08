@@ -55,28 +55,5 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
-        android:id="@+id/cart_container"
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:layout_gravity="end|bottom"
-        android:gravity="center"
-        android:elevation="20dp"
-        android:backgroundTint="#feeae6"
-        android:backgroundTintMode="multiply"
-        android:layout_marginTop="5dp"
-        >
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="17dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            app:srcCompat="@drawable/ic_baseline_shopping_cart_24px"
-            android:tint="@color/textColorPrimary"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-
+   <include layout="@layout/shr_cart_layout"/>
 </FrameLayout>

@@ -49,7 +49,7 @@ public class FeatureFragment extends Fragment {
         });
         recyclerView.setLayoutManager(gridLayoutManager);
         StaggeredProductCardRecyclerViewAdapter adapter = new StaggeredProductCardRecyclerViewAdapter(
-                ProductEntry.initProductEntryList(getResources()));
+                getActivity(), ProductEntry.initProductEntryList(getResources()));
         recyclerView.setAdapter(adapter);
         int largePadding = getResources().getDimensionPixelSize(R.dimen.shr_product_grid_spacing);
         int smallPadding = getResources().getDimensionPixelSize(R.dimen.shr_product_grid_spacing_small);

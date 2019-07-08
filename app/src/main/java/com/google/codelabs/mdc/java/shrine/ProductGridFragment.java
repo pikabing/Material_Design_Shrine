@@ -54,7 +54,7 @@ public class ProductGridFragment extends Fragment {
             }
         });
         recyclerView.setLayoutManager(gridLayoutManager);
-        StaggeredProductCardRecyclerViewAdapter adapter = new StaggeredProductCardRecyclerViewAdapter(
+        StaggeredProductCardRecyclerViewAdapter adapter = new StaggeredProductCardRecyclerViewAdapter(getActivity(),
                 ProductEntry.initProductEntryList(getResources()));
         recyclerView.setAdapter(adapter);
         int largePadding = getResources().getDimensionPixelSize(R.dimen.shr_product_grid_spacing);

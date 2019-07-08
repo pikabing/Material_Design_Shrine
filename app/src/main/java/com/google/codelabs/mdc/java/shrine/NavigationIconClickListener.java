@@ -86,10 +86,10 @@ public class NavigationIconClickListener implements View.OnClickListener {
                 throw new IllegalArgumentException("updateIcon() must be called on an ImageView");
             }
             if (backdropShown) {
-                new CountDownTimer(500, 500) {
+                new CountDownTimer(300, 300) {
                     @Override
                     public void onTick(long l) {
-                        view.animate().rotation(360).setDuration(500).start();
+                        view.animate().rotation(360).setDuration(1000).start();
                     }
 
                     public void onFinish() {
@@ -99,10 +99,10 @@ public class NavigationIconClickListener implements View.OnClickListener {
                 }.start();
             }
             else {
-                new CountDownTimer(500, 500) {
+                new CountDownTimer(300, 300) {
                     @Override
                     public void onTick(long l) {
-                        view.animate().rotation(-360).setDuration(500).start();
+                        view.animate().rotation(-360).setDuration(1000).start();
                     }
 
                     public void onFinish() {

@@ -1,9 +1,12 @@
 package com.google.codelabs.mdc.java.shrine.staggeredgridlayout;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.codelabs.mdc.java.shrine.ItemDetailFragment;
+import com.google.codelabs.mdc.java.shrine.MainActivity;
 import com.google.codelabs.mdc.java.shrine.R;
 import com.google.codelabs.mdc.java.shrine.network.ImageRequester;
 import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
@@ -21,9 +24,11 @@ public class StaggeredProductCardRecyclerViewAdapter extends RecyclerView.Adapte
 
     private List<ProductEntry> productList;
     private ImageRequester imageRequester;
+    private Context context;
 
-    public StaggeredProductCardRecyclerViewAdapter(List<ProductEntry> productList) {
+    public StaggeredProductCardRecyclerViewAdapter(Context context, List<ProductEntry> productList) {
         this.productList = productList;
+        this.context = context;
         imageRequester = ImageRequester.getInstance();
     }
 
@@ -53,6 +58,12 @@ public class StaggeredProductCardRecyclerViewAdapter extends RecyclerView.Adapte
             holder.productTitle.setText(product.title);
             holder.productPrice.setText(product.price);
             imageRequester.setImageFromUrl(holder.productImage, product.url);
+            holder.productImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((MainActivity) context).navigateTo(new ItemDetailFragment(), true);
+                }
+            });
         }
     }
 
