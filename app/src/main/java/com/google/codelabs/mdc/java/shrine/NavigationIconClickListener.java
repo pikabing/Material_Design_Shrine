@@ -94,7 +94,7 @@ public class NavigationIconClickListener implements View.OnClickListener {
 
                     public void onFinish() {
                        ((ImageView) view).setImageDrawable(closeIcon);
-                       view.animate().cancel();
+                        view.setRotation(0);
                     }
                 }.start();
             }
@@ -107,6 +107,7 @@ public class NavigationIconClickListener implements View.OnClickListener {
 
                     public void onFinish() {
                         ((ImageView) view).setImageDrawable(openIcon);
+                        view.setRotation(0);
                     }
                 }.start();
             }

@@ -23,11 +23,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
 import com.google.codelabs.mdc.java.shrine.staggeredgridlayout.StaggeredProductCardRecyclerViewAdapter;
 
 public class ProductGridFragment extends Fragment {
 
+    private MaterialButton toolbarButton;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class ProductGridFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.shr_product_grid_fragment, container, false);
-
+        toolbarButton = view.findViewById(R.id.all_products);
         ((MainActivity) getActivity()).setUpToolbar(view);
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
@@ -73,4 +75,16 @@ public class ProductGridFragment extends Fragment {
         super.onCreateOptionsMenu(menu, menuInflater);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        toolbarButton.setIconResource(R.drawable.ic_baseline_change_history_24px);
+        toolbarButton.setIconGravity(MaterialButton.ICON_GRAVITY_START);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        toolbarButton.setIconResource(0);
+    }
 }

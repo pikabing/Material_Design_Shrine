@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -64,10 +65,13 @@ public class FeatureFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        toolbarButton.setIconResource(R.drawable.ic_baseline_change_history_24px);
+        toolbarButton.setIconGravity(MaterialButton.ICON_GRAVITY_START);
     }
 
     @Override
     public void onStop() {
+        toolbarButton.setIcon(null);
         super.onStop();
     }
 
