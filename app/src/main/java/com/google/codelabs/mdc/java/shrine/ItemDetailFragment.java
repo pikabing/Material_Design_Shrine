@@ -1,5 +1,7 @@
 package com.google.codelabs.mdc.java.shrine;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -35,7 +39,7 @@ public class ItemDetailFragment extends Fragment {
     private ImageSliderAdapter imageSliderAdapter;
     private LinearLayout dotsLayout;
     private TextView[] mDots;
-
+    private int scroll, oldposition;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -92,12 +96,31 @@ public class ItemDetailFragment extends Fragment {
 
         @Override
         public void onPageSelected(int position) {
+            if (position==0)
+                oldposition = position;
+            else
+                oldposition = scroll;
+
+            scroll = position;
             addDots(position);
         }
 
         @Override
         public void onPageScrollStateChanged(int state) {
-
+            if (state == 1) {
+                if (oldposition <= scroll && scroll!=3) {
+                    mDots[scroll].setPivotX(3f);
+                    mDots[scroll].animate().scaleXBy(3.25f).setDuration(500);
+                } else {
+                    if (scroll!=0) {
+                        mDots[scroll].setPivotX(0f);
+                        mDots[scroll].animate().scaleXBy(-4.25f).setDuration(500);
+                    }
+                }
+            }
+            if (state==2 || state==0) {
+                addDots(scroll);
+            }
         }
     };
 
